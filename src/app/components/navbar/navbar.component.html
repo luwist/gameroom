@@ -1,0 +1,17 @@
+<header class="w-full h-24 flex items-center justify-between px-10">
+    <a routerLink="/">
+        <img src="assets/logo.svg" alt="">
+    </a>
+
+    <ul class="flex items-center gap-11 text-sm font-bold text-[#C4C4C4]">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/games">Juegos</a></li>
+        <li><a routerLink="/chat">Chat</a></li>
+        <li><a routerLink="/who-i-am">Quien soy</a></li>
+    </ul>
+
+    <div>
+        <a routerLink="/login" pButton [text]="true">Iniciar sesión</a>
+        <a routerLink="/register" pButton>Registrarse</a>
+    </div>
+</header>
