@@ -1,6 +1,6 @@
 @layer tailwind-base, primeng, tailwind-utilities;
 
-@import './assets/themes/theme/theme.scss';
+@import './assets/themes/tailwind/tailwind-light/theme.scss';
 @import "primeng/resources/primeng.css";
 
 @layer tailwind-base {

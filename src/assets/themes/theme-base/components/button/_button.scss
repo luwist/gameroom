@@ -1,4 +1,8 @@
 .p-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
     color: $buttonTextColor;
     // background: $buttonBg;
     background: linear-gradient(0.25turn, #FF395C, #FF6243);
@@ -6,7 +10,6 @@
     // border: $buttonBorder;
     // padding: $buttonPadding;
     padding: 0 20px;
-    height: 48px;
     font-size: 14px;
     border-radius: 14px;
     font-weight: 600;
@@ -30,7 +33,7 @@
     }
 
     &.p-button-outlined {
-        background-color: transparent;
+        background: transparent;
         color: $buttonBg;
         border: $outlinedButtonBorder;
 
@@ -160,8 +163,9 @@
     }
 
     &.p-button-lg {
-        @include scaledFontSize($fontSize, $scaleLG);
-        @include scaledPadding($buttonPadding, $scaleLG);
+        height: 56px;
+        // @include scaledFontSize($fontSize, $scaleLG);
+        // @include scaledPadding($buttonPadding, $scaleLG);
 
         .p-button-icon {
             @include scaledFontSize($primeIconFontSize, $scaleLG);
