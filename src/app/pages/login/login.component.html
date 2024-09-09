@@ -1,32 +1,74 @@
+<p-toast position="top-center" />
+
 <div class="w-full h-screen grid place-content-center">
-    <form class="w-96">
+    <form class="w-96" [formGroup]="form" (submit)="onLogin()">
         <div class="flex justify-center">
             <a routerLink="/">
                 <img src="assets/logo.svg" alt="">
             </a>
         </div>
+
         <h1 class="text-2xl font-semibold text-center my-5">Iniciar sesión</h1>
+
+        <div class="flex gap-5 flex-wrap">
+            @for (account of accounts; track $index) {
+            <app-account-card
+              image="{{ account.image }}"
+              username="{{ account.username }}"
+              [selected]="selectedOption === account.id"
+              (click)="onSelect(account)"
+            />
+            }
+          </div>
+
+        <p-divider align="center" type="solid">
+            o inicia sesión con tu correo electrónico
+        </p-divider>
+
         <div class="flex flex-col">
             <label for="email" class="text-sm font-medium mb-1">Correo electronico</label>
+
             <input 
                 id="email"
                 pInputText
                 class="w-full"
                 placeholder="Correo electronico"
+                formControlName="email"
             />
+
+            <app-input-error [control]="emailControl" />
         </div>
+
         <div class="flex flex-col mt-6">
             <label for="password" class="text-sm font-medium mb-1">Contraseña</label>
+
             <input 
                 id="password"
                 pInputText
                 class="w-full"
+                type="password"
                 placeholder="Contraseña"
+                formControlName="password"
             />
+
+            <app-input-error [control]="passwordControl" />
         </div>
 
-        <button type="submit" pButton size="large" class="mt-8 w-full">Iniciar sesión</button>
+        <button 
+            type="submit"
+            pButton
+            size="large"
+            class="mt-8 w-full flex items-center gap-2"
+            [disabled]="(form.statusChanges | async) !== 'VALID'"
+        >
+        @if(loading) {
+            <span class="animate-spin w-4 h-4">
+                <i class="pi pi-spin pi-spinner"></i>
+            </span>
+        }
+            Iniciar sesión
+        </button>
 
-        <p class="text-center text-sm mt-5">¿No tienes una cuenta? <a routerLink="/register">Registrate</a></p>
+        <p class="text-center text-sm mt-5">¿No tienes una cuenta? <a routerLink="/register" class="underline">Registrate</a></p>
     </form>
 </div>

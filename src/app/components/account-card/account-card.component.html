@@ -1,0 +1,8 @@
+<button
+  type="button"
+  class="w-28 h-28 border rounded-xl flex flex-col items-center justify-center gap-2 text-sm font-medium capitalize"
+  [ngClass]="selected ? 'border-[#FF395C] text-[#FF395C]' : 'border-[#c4c4c4] text-[#808080]'"
+>
+  <img src="{{ image }}" alt="" class="w-11 h-11 rounded-full object-cover" />
+  {{ username }}
+</button>

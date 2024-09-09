@@ -54,9 +54,9 @@
     }
     
     .p-button {
-        &:focus {
-            @include focused-ring($focusOutlineColor);
-        }
+        // &:focus {
+        //     @include focused-ring($focusOutlineColor);
+        // }
     
         &.p-button-secondary:enabled:focus {
             @include focused-ring($secondaryButtonBg);

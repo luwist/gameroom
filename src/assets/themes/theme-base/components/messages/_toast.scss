@@ -3,18 +3,21 @@
 
     .p-toast-message {
         margin: $toastMargin;
-        box-shadow: $toastShadow;
+        // box-shadow: $toastShadow;
         border-radius: $borderRadius;
 
         .p-toast-message-content {
             padding: $toastPadding;
-            border-width: $toastBorderWidth;
+            // border-width: $toastBorderWidth;
+            border-width: 0;
 
             .p-toast-message-text {
                 margin: $toastMessageTextMargin;
+                text-align: center;
             }
 
             .p-toast-message-icon {
+                display: none;
                 font-size: $toastIconFontSize;
             }
 
@@ -33,6 +36,7 @@
         }
 
         .p-toast-icon-close {
+            display: none;
             width: $toastIconFontSize;
             height: $toastIconFontSize;
             border-radius: $actionIconBorderRadius;

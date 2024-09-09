@@ -1,1 +1,89 @@
-<p>register works!</p>
+<p-toast position="top-center" />
+
+<div class="w-full h-screen grid place-content-center">
+    <form class="w-96" [formGroup]="form" (submit)="onRegister()">
+        <div class="flex justify-center">
+            <a routerLink="/">
+                <img src="assets/logo.svg" alt="">
+            </a>
+        </div>
+
+        <h1 class="text-2xl font-semibold text-center my-5">Registrate</h1>
+
+        <div class="flex gap-6 mb-6">
+            <div class="flex flex-col">
+                <label for="firstName" class="text-sm font-medium mb-1">Nombre</label>
+    
+                <input 
+                    id="firstName"
+                    pInputText
+                    class="w-full"
+                    placeholder="Nombre"
+                    formControlName="firstName"
+                />
+    
+                <app-input-error [control]="firstNameControl" />
+            </div>
+
+            <div class="flex flex-col">
+                <label for="lastName" class="text-sm font-medium mb-1">Apellido</label>
+    
+                <input 
+                    id="lastName"
+                    pInputText
+                    class="w-full"
+                    placeholder="Apellido"
+                    formControlName="lastName"
+                />
+    
+                <app-input-error [control]="lastNameControl" />
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <label for="email" class="text-sm font-medium mb-1">Correo electronico</label>
+
+            <input 
+                id="email"
+                pInputText
+                class="w-full"
+                placeholder="Correo electronico"
+                formControlName="email"
+            />
+
+            <app-input-error [control]="emailControl" />
+        </div>
+
+        <div class="flex flex-col mt-6">
+            <label for="password" class="text-sm font-medium mb-1">Contraseña</label>
+
+            <input 
+                id="password"
+                pInputText
+                class="w-full"
+                type="password"
+                placeholder="Contraseña"
+                formControlName="password"
+            />
+
+            <app-input-error [control]="passwordControl" />
+        </div>
+
+        <button 
+            type="submit"
+            pButton
+            size="large"
+            class="mt-8 w-full flex items-center gap-2"
+            [disabled]="(form.statusChanges | async) !== 'VALID'"
+        >
+        @if(loading) {
+            <span class="animate-spin w-4 h-4">
+                <i class="pi pi-spin pi-spinner"></i>
+            </span>
+        }
+            Crear cuenta
+        </button>
+
+        <p class="text-center text-sm mt-5">¿Ya tienes una cuenta? <a routerLink="/login" class="underline">Inicia sesion</a></p>
+    </form>
+</div>
