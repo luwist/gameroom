@@ -1,21 +1,41 @@
 <div class="w-[650px] py-10 mx-auto text-base">
-    <div class="flex flex-col items-center gap-2">
-        @if((userGithub$ | async) == null) {
-            <p-skeleton size="80px" />
-            <p-skeleton width="95px" height="24px" />
-        } @else {
-            <img [src]="(userGithub$ | async)?.avatar_url" alt="" class="w-20 h-20 rounded-2xl">
-            <p class="text-[#1f1f1f] font-semibold">{{ (userGithub$ | async)?.name }}</p>
-        }
-    </div>
+  <div class="flex flex-col items-center gap-2">
+    @if((userGithub$ | async) == null) {
+    <p-skeleton size="80px" />
+    <p-skeleton width="95px" height="24px" />
+    } @else {
+    <img
+      [src]="(userGithub$ | async)?.avatar_url"
+      alt=""
+      class="w-20 h-20 rounded-2xl"
+    />
+    <p class="text-[#1f1f1f] font-semibold">
+      {{ (userGithub$ | async)?.name }}
+    </p>
+    }
+  </div>
 
-    <section class="mt-6">
-        <h2 class="bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text font-medium">Sobre mi</h2>
-        <p class="text-[#808080] mt-1">¡Hola! soy Javier Vilchez  estudiante  de la Tecnicatura Universitaria en Programacion en UTN. Apasionado por las tecnologias, me gusta aprender cosas nuevas.</p>
-    </section>
+  <!-- <section class="mt-6">
+    <h2
+      class="bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text font-medium"
+    >
+      Sobre mi
+    </h2>
+    <p class="text-[#808080] mt-1">
+      ¡Hola! soy Javier Estudiante de la carrera de Tecnicatura Universitaria
+      en Programación en UTN.
+    </p>
+  </section> -->
 
-    <section class="mt-6">
-        <h2 class="bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text font-medium">¿Que es “Arithmetic” ?</h2>
-        <p class="text-[#808080] mt-1">Arithmetic es un juego matematico en donde tendras que calcular la operacion en el menor tiempo posible.</p>
-    </section>
+  <section class="mt-6">
+    <h2
+      class="bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text font-medium"
+    >
+      ¿Que es “Arithmetic” ?
+    </h2>
+    <p class="text-[#808080] mt-1">
+      Arithmetic es un juego matematico en donde tendras que calcular la
+      operacion en el menor tiempo posible.
+    </p>
+  </section>
 </div>
