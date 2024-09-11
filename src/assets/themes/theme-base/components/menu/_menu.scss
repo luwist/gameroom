@@ -7,7 +7,17 @@
     width: $menuWidth;
 
     .p-menuitem {
-        @include menuitem();
+        // @include menuitem();
+        font-size: 14px;
+        padding: 0 24px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:hover {
+            background-color: #f6f6f6;
+        }
     }
 
     &.p-menu-overlay {
@@ -18,7 +28,7 @@
 
     .p-submenu-header {
         margin: $submenuHeaderMargin;
-        padding: $submenuHeaderPadding;
+        // padding: $submenuHeaderPadding;
         color: $submenuHeaderTextColor;
         background: $submenuHeaderBg;
         font-weight: $submenuHeaderFontWeight;

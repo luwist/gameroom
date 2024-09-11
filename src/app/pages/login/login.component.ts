@@ -40,23 +40,23 @@ export class LoginComponent {
   accounts: Account[] = [
     {
       id: 1,
-      email: 'jhoe.doe@gameroom.com',
+      email: 'juan.perez@gameroom.com',
       password: '123456',
-      username: 'Qwerty',
+      username: 'Invitado',
       image: 'assets/images/avatar-02.jpg',
     },
     {
       id: 2,
-      email: 'jhoe.doe@gameroom.com',
+      email: 'maria.fernandez@gameroom.com',
       password: '123456',
-      username: 'Luwist',
+      username: 'Administrador',
       image: 'assets/images/avatar-03.jpg',
     },
     {
       id: 3,
-      email: 'jhoe.doe@gameroom.com',
+      email: 'carlos.santana@gameroom.com',
       password: '123456',
-      username: 'StrogeBest',
+      username: 'Tester',
       image: 'assets/images/avatar-04.jpg',
     },
   ];

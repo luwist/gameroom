@@ -23,18 +23,15 @@ export class AuthService {
       request.password
     );
   }
+
   async register(request: Register): Promise<void> {
     await createUserWithEmailAndPassword(
       this._auth,
       request.email,
       request.password
     );
-
-    // updateProfile(user.user, {
-    //   displayName: `${firstName} ${lastName}`,
-    //   photoURL: profileUrl,
-    // });
   }
+
   logout(): void {
     signOut(this._auth);
   }
