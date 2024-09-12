@@ -10,24 +10,19 @@
         <li><a routerLink="/who-i-am" routerLinkActive="text-[#1f1f1f]">Quien soy</a></li>
     </ul>
 
-    @if ((currentUser$ | async) == null) {
-        <div>
-            <a routerLink="/login" pButton [text]="true">Iniciar sesión</a>
-            <a routerLink="/register" pButton>Registrarse</a>
-        </div>
-    } @else {    
+    @if (currentUser$ | async; as currentUser) {
         <div>
             <p-menu #menu [model]="items" [popup]="true">
                 <ng-template pTemplate="start">
                     <div class="flex flex-col items-center gap-2 py-6">
                         <p-avatar 
-                            image="{{ (currentUser$ | async)?.photoURL }}" 
+                            image="{{ currentUser.photoURL }}" 
                             size="large" 
                             shape="circle"
                         />
                         <div>
-                            <p class="font-medium text-center">{{ (currentUser$ | async)?.displayName }}</p>
-                            <p class="text-sm text-[#808080] text-center">{{ (currentUser$ | async)?.email }}</p>
+                            <p class="font-medium text-center">{{ currentUser.displayName }}</p>
+                            <p class="text-sm text-[#808080] text-center">{{ currentUser.email }}</p>
                         </div>
                     </div>
                 </ng-template>
@@ -46,11 +41,16 @@
                 </ng-template>
             </p-menu>
             <p-avatar 
-                image="{{ (currentUser$ | async)?.photoURL }}" 
+                image="{{ currentUser.photoURL }}" 
                 (click)="menu.toggle($event)"
                 size="large" 
                 shape="circle"
             />
+        </div>
+    } @else {
+        <div>
+            <a routerLink="/login" pButton [text]="true">Iniciar sesión</a>
+            <a routerLink="/register" pButton>Registrarse</a>
         </div>
     }
 </header>

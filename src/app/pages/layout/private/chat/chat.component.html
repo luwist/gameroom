@@ -1,1 +1,28 @@
-<p>chat works!</p>
+<main class="p-10 flex justify-between">
+    <div>
+        <div>
+            <h2 class="text-2xl font-semibold">Chat general</h2>
+            <p class="text-sm text-[#1DC60E] font-medium">{{ getConnectedUserslength() }} conectados</p>
+        </div>
+    </div>
+    <div class="w-96">
+        <h3 class="text-base font-semibold">Conectados</h3>
+
+        <div class="mt-4 flex flex-col gap-4">
+            @if ((currentUser$ | async) !== null) {
+                <div class="flex items-center gap-3">
+                    <img [src]="(currentUser$ | async)?.photoURL" alt="" class="w-11 h-11 object-cover rounded-full">
+                    <span class="text-sm font-medium">{{ (currentUser$ | async)?.displayName }} (Tú)</span>
+                </div>
+            }
+            @for (connectedUser of connectedUsers; track $index) {
+                @if (connectedUser.id !== (currentUser$ | async)?.uid && connectedUser.isConnected) {
+                    <div class="flex items-center gap-3">
+                        <img [src]="connectedUser.picture" alt="" class="w-11 h-11 object-cover rounded-full">
+                        <span class="text-sm font-medium">{{ connectedUser.firstName }} {{ connectedUser.lastName }}</span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</main>

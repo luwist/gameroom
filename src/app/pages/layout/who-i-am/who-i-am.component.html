@@ -1,17 +1,17 @@
 <div class="w-[650px] py-10 mx-auto text-base">
   <div class="flex flex-col items-center gap-2">
-    @if((userGithub$ | async) == null) {
-    <p-skeleton size="80px" />
-    <p-skeleton width="95px" height="24px" />
-    } @else {
-    <img
-      [src]="(userGithub$ | async)?.avatar_url"
+    @if(userGithub$ | async; as userGithub) {
+      <img
+      [src]="userGithub.avatar_url"
       alt=""
       class="w-20 h-20 rounded-2xl"
     />
     <p class="text-[#1f1f1f] font-semibold">
-      {{ (userGithub$ | async)?.name }}
+      {{ userGithub.name }}
     </p>
+  } @else {
+      <p-skeleton size="80px" />
+      <p-skeleton width="95px" height="24px" />
     }
   </div>
 
