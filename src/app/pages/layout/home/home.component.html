@@ -1,4 +1,38 @@
 <div class="py-20 flex flex-col justify-center items-center gap-5">
     <h1 class="text-[32px] w-[600px] text-center font-extrabold">Sumérgete en un Mundo de Juegos Diversos y Emocionantes</h1>
-    <a routerLink="/" pButton [outlined]="true">Explorar</a>
+    <a routerLink="/games" pButton [outlined]="true">Explorar</a>
 </div>
+<section class="px-10 w-[1400px] mx-auto">
+    <h2 class="text-xl font-semibold mb-5">Juegos</h2>
+
+    <div class="flex justify-between">
+        <div class="flex gap-3">
+            <img src="assets/images/hangman.png" alt="" class="w-28 h-28 rounded-xl">
+            <div class="flex flex-col justify-between">
+                <h3 class="text-lg font-semibold">Ahorcado</h3>
+                <a routerLink="/games/hangman" pButton>Jugar</a>
+            </div>
+        </div>
+        <div class="flex gap-3">
+            <img src="assets/images/trivia-quiz.png" alt="" class="w-28 h-28 rounded-xl">
+            <div class="flex flex-col justify-between">
+                <h3 class="text-lg font-semibold">Preguntados</h3>
+                <a routerLink="/games/trivia-quiz" pButton>Jugar</a>
+            </div>
+        </div>
+        <div class="flex gap-3">
+            <img src="assets/images/higher-or-lower-card.png" alt="" class="w-28 h-28 rounded-xl">
+            <div class="flex flex-col justify-between">
+                <h3 class="text-lg font-semibold">Mayor o menor</h3>
+                <a routerLink="/games/higher-or-lower" pButton>Jugar</a>
+            </div>
+        </div>
+        <div class="flex gap-3">
+            <img src="assets/images/arithmetic.png" alt="" class="w-28 h-28 rounded-xl">
+            <div class="flex flex-col justify-between">
+                <h3 class="text-lg font-semibold">Arithmetic</h3>
+                <a routerLink="/games/arithmetic" pButton>Jugar</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="game">
+  @switch (currentScene) { @case ('MainMenu') {
+  <app-main-menu (initGameplay)="onChangeScene($event)" />
+  } @case ('Gameplay') {
+  <app-gameplay (changeScene)="onChangeScene($event)" (scoreEmitter)="onScore($event)" />
+  } @case ('GameOver') {
+  <app-game-over
+    (backMainMenu)="onChangeScene($event)"
+    (replay)="onChangeScene($event)"
+    [score]="score"
+  />
+  } }
+</div>

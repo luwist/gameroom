@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "cool-crayon";
+  src: url("./media/DK\ Cool\ Crayon.ttf");
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 96px);
+}
+
+.game {
+  background-image: url("./media/background.jpg");
+  font-family: "cool-crayon";
+}

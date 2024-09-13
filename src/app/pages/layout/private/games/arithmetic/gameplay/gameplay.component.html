@@ -1,0 +1,37 @@
+<div #countdown class="countdown"></div>
+
+<div #gameplay class="gameplay">
+  <div class="hud">
+    <div class="progress-container">
+      <img
+        src="assets/games/arithmetic/time_bar_outline.png"
+        class="outline"
+        alt=""
+      />
+      <div #progressBar class="progress-bar">
+        <img src="assets/games/arithmetic/time_bar.png" class="bar" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="game-area">
+    <div class="stars">
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+    </div>
+    <div #answer class="answer">{{ question.question }} = {{ result }}</div>
+    <div #options class="options">
+      @for (option of question.options; track $index) {
+      <button
+        class="button button-option"
+        (click)="selectedNumber(option, $event)"
+      >
+        {{ option }}
+      </button>
+      }
+    </div>
+  </div>
+</div>

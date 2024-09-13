@@ -1,0 +1,123 @@
+<div class="game">
+  @switch (currentScene) { @case ('main-menu') {
+  <app-main-menu (initGameplay)="onChangeScene($event)" />
+  } @case ('gameplay') {
+  <app-gameplay (backMainMenu)="onChangeScene($event)" />
+  } }
+
+  <!-- <div #mainMenu class="main-menu">
+    <img src="assets/games/hangman/general_logo_blue.png" alt="" class="logo" />
+
+    <button class="button" (click)="buttonPlay()">
+      <img src="assets/games/hangman/main_menu_play.png" alt="" />
+    </button>
+  </div>
+
+  <div #gameplay class="gameplay">
+    @if (showPauseSettings) {
+    <div class="pause">
+      <div class="pause-background">
+        <img
+          src="assets/games/hangman/pause_settings_background.png"
+          alt=""
+          class="pause-image"
+        />
+
+        <div class="content">
+          <button
+            class="button button-close"
+            (click)="showPauseSettings = !showPauseSettings"
+          ></button>
+
+          <p class="title">Pausa</p>
+
+          <div class="pause-settings-buttons">
+            <button class="button-pause" (click)="buttonHome()">
+              <img src="assets/games/hangman/general_home.png" alt="" />
+            </button>
+            <button class="button-pause" (click)="buttonRestart()">
+              <img src="assets/games/hangman/general_restart.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+
+    <div #menu class="top-gameplay">
+      <span class="check">
+        <img src="assets/games/hangman/gameplay_check.png" alt="" />
+
+        {{ score }}
+      </span>
+
+      <button class="button-pause" (click)="buttonPause()">
+        <img src="assets/games/hangman/gameplay_pause.png" alt="" />
+      </button>
+    </div>
+
+    <div class="game-content">
+      <div class="content-left">
+        <div class="content-top">
+          <div class="clueframe">
+            <img src="assets/games/hangman/gameplay_clueframe.png" alt="" />
+
+            <span class="text">{{ category }}</span>
+          </div>
+
+          <div class="answer">
+            @for (item of answerArray; track $index) {
+            <span class="letter">
+              <span
+                class="letter-hide"
+                [ngClass]="{ 'letter-show': item.show }"
+                >{{ item.letter }}</span
+              >
+
+              <img src="assets/games/hangman/answer_sheet.png" alt="" />
+            </span>
+            }
+          </div>
+        </div>
+
+        <div #keyboardd class="keyboard" (click)="keyboardButton($event)">
+          @for (item of keyboard; track $index) {
+          <div>
+            @for (key of item; track $index) {
+            <button class="button button-key" [attr.data-letter]="key">
+              {{ key }}
+              <img class="letter-right-wrong" src="" alt="" />
+            </button>
+            }
+          </div>
+          }
+        </div>
+
+        <div #gameEnd class="game-end">
+          <img src="assets/games/hangman/gameover_background.png" alt="" />
+
+          <div class="game-end-content">
+            <span class="check">
+              <img src="assets/games/hangman/gameplay_check.png" alt="" />
+
+              {{ score }}
+            </span>
+
+            <div class="pause-settings-buttons">
+              <button class="button-pause" (click)="buttonHome()">
+                <img src="assets/games/hangman/general_home.png" alt="" />
+              </button>
+              <button class="button-pause" (click)="buttonRestart()">
+                <img src="assets/games/hangman/general_restart.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallow">
+        <img src="assets/games/hangman/animation_gallow.png" alt="" />
+      </div>
+    </div>
+  </div> -->
+</div>

@@ -12,3 +12,9 @@
     @tailwind components;
     @tailwind utilities;
 }
+
+.game {
+    position: relative;
+    width: 960px;
+    height: 540px;
+}

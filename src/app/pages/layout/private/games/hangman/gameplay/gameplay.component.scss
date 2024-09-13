@@ -1,0 +1,281 @@
+.gameplay {
+  height: 100%;
+  .hud {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &.hide {
+      opacity: 0;
+    }
+    .button-home {
+      width: 73px;
+      height: 73px;
+      background: url("../media/general_home.png") no-repeat;
+      background-size: contain;
+    }
+  }
+  .diamond {
+    width: 71px;
+    height: 73px;
+    background-image: url("../media/gameplay_diamond.png");
+  }
+  .item {
+    display: flex;
+    .icon {
+      width: 72px;
+      height: 73px;
+      &.score {
+        background-image: url("../media/gameplay_check.png");
+      }
+      &.diamon {
+        background-image: url("../media/gameplay_diamond.png");
+      }
+    }
+    .point {
+      font-size: 60px;
+    }
+  }
+  .game-area {
+    height: calc(100% - 96px);
+    display: flex;
+    padding: 09px;
+    padding-bottom: 50px;
+    .content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .clueframe {
+          width: 284px;
+          height: 53px;
+          background: url("../media/gameplay_clueframe.png") no-repeat;
+          display: grid;
+          place-content: center;
+          font-size: 32px;
+          margin-bottom: 20px;
+        }
+        .answer {
+          display: flex;
+          gap: 8px;
+          .letter {
+            width: 44px;
+            height: 55px;
+            text-transform: uppercase;
+            display: grid;
+            place-content: center;
+            font-size: 44px;
+            background: url("../media/answer_sheet.png") no-repeat;
+            background-position: bottom left;
+          }
+        }
+      }
+      .keyboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &.hide {
+          opacity: 0;
+        }
+        .row {
+          display: flex;
+          gap: 8px;
+          .button-key {
+            position: relative;
+            width: 46px;
+            height: 52px;
+            font-size: 44px;
+            color: #0568af;
+            display: grid;
+            font-family: "Caveat", cursive;
+            place-content: center;
+            text-transform: capitalize;
+            &.right::before,
+            &.wrong::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-repeat: no-repeat;
+              background-position: center;
+              pointer-events: none;
+            }
+            &.right::before {
+              background-image: url("../media/gameplay_letter_right.png");
+            }
+            &.wrong::before {
+              background-image: url("../media/gameplay_letter_wrong.png");
+            }
+          }
+        }
+      }
+    }
+    .gallow {
+      position: relative;
+      align-self: flex-end;
+      width: 303px;
+      height: 305px;
+      background: url("../media/animation_gallow.png") no-repeat;
+      .rope,
+      .head,
+      .body {
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+      }
+      .rope {
+        width: 8px;
+        height: 47px;
+        right: 108px;
+        top: 9px;
+        &.show {
+          background-image: url("../media/animation_rope.png");
+          animation: ropeAnimation 250ms steps(2) forwards;
+        }
+      }
+      .head {
+        width: 47px;
+        height: 48px;
+        right: 88px;
+        top: 52px;
+        &.show {
+          background-image: url("../media/animation_head.png");
+          animation: headAnimation 250ms steps(2) forwards;
+        }
+      }
+      .body {
+        width: 9px;
+        height: 88px;
+        right: 107px;
+        top: 98px;
+        &.show {
+          background-image: url("../media/animation_body.png");
+          animation: bodyAnimation 250ms steps(2) forwards;
+        }
+      }
+      .hand-left,
+      .hand-right {
+        display: block;
+        width: 41px;
+        height: 60px;
+        position: absolute;
+        top: 98px;
+        background-repeat: no-repeat;
+      }
+      .hand-left {
+        right: 72px;
+        &.show {
+          background-image: url("../media/animation_hand_left.png");
+          animation: handAnimation 250ms steps(2) forwards;
+        }
+      }
+      .hand-right {
+        right: 109px;
+        &.show {
+          background-image: url("../media/animation_hand_right.png");
+          animation: handAnimation 250ms steps(2) forwards;
+        }
+      }
+      .leg-left,
+      .leg-right {
+        display: block;
+        width: 41px;
+        height: 60px;
+        position: absolute;
+        top: 178px;
+      }
+      .leg-left {
+        right: 74px;
+        &.show {
+          background: url("../media/animation_leg_left.png") no-repeat;
+          animation: legAnimation 250ms steps(2) forwards;
+        }
+      }
+      .leg-right {
+        right: 107px;
+        &.show {
+          background: url("../media/animation_leg_right.png") no-repeat;
+          animation: legAnimation 250ms steps(2) forwards;
+        }
+      }
+    }
+  }
+  .gameover {
+    position: absolute;
+    width: 500px;
+    height: 295px;
+    bottom: 5px;
+    left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    &.hide {
+      display: none;
+    }
+    &.welldone {
+      background-image: url("../media/welldone_background.png");
+    }
+    &.lose {
+      background-image: url("../media/gameover_background.png");
+    }
+    .container {
+      display: grid;
+      place-content: center;
+      width: 272px;
+      margin-bottom: 18px;
+    }
+    .container-point {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+    }
+    .container-buttons {
+      display: flex;
+      gap: 50px;
+      .button-home,
+      .button-replay {
+        width: 97px;
+        height: 97px;
+      }
+      .button-home {
+        background-image: url("../media/general_home.png");
+      }
+      .button-replay {
+        background-image: url("../media/general_restart.png");
+      }
+    }
+  }
+}
+@keyframes ropeAnimation {
+  100% {
+    background-position-x: -16px;
+  }
+}
+@keyframes headAnimation {
+  100% {
+    background-position-x: -94px;
+  }
+}
+@keyframes bodyAnimation {
+  100% {
+    background-position-x: -18px;
+  }
+}
+@keyframes handAnimation {
+  100% {
+    background-position-x: -80px;
+  }
+}
+@keyframes legAnimation {
+  100% {
+    background-position-x: -75px;
+  }
+}

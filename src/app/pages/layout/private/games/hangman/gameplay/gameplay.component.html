@@ -1,0 +1,79 @@
+<div class="gameplay">
+  <div #hud class="hud">
+    <div class="item">
+      <span class="icon diamond"></span>
+      <span class="point">0</span>
+    </div>
+
+    <div class="item">
+      <span class="icon score"></span>
+      <span class="point">{{ score }}</span>
+    </div>
+
+    <button class="button button-home" (click)="onBackMainMenu()"></button>
+  </div>
+
+  <div class="game-area">
+    <div class="content">
+      <div class="top">
+        <div class="clueframe">{{ category }}</div>
+        <div class="answer">
+          @for (letter of word; track $index) { @if
+          (usedLetters.includes(letter)) {
+          <span class="letter">{{ letter }}</span>
+          } @else {
+          <span class="letter"></span>
+          } }
+        </div>
+      </div>
+
+      <div #keyboardRef class="keyboard">
+        @for (row of keyboard; track $index) {
+        <div class="row">
+          @for (key of row; track $index) {
+          <button
+            class="button button-key"
+            [attr.data-key]="key"
+            (click)="onSelectedKey($event)"
+          >
+            {{ key }}
+          </button>
+          }
+        </div>
+        }
+      </div>
+    </div>
+
+    <div #gallow class="gallow">
+      <span class="rope"></span>
+      <span class="head"></span>
+      <span class="body"></span>
+      <span class="hand-left"></span>
+      <span class="hand-right"></span>
+      <span class="leg-left"></span>
+      <span class="leg-right"></span>
+    </div>
+  </div>
+
+  <button class="button hint-button"></button>
+
+  <div #gameover class="gameover hide">
+    <div class="container">
+      <div class="container-point">
+        <div class="item">
+          <span class="icon diamond"></span>
+          <span class="point">0</span>
+        </div>
+
+        <div class="item">
+          <span class="icon score"></span>
+          <span class="point">{{ score }}</span>
+        </div>
+      </div>
+      <div class="container-buttons">
+        <button class="button button-home" (click)="onBackMainMenu()"></button>
+        <button class="button button-replay" (click)="onReplay()"></button>
+      </div>
+    </div>
+  </div>
+</div>

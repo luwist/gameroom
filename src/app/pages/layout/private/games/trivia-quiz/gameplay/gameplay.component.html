@@ -1,0 +1,53 @@
+<div class="gameplay">
+  <header class="header">
+    <div class="right">
+      <div class="question-number">
+        <img src="assets/games/trivia-quiz/ban_questionnumber.png" alt="" />
+
+        <span class="text">Pregunta {{ numberQuestion }}</span>
+      </div>
+
+      <span class="number">{{ numberQuestion }}/15</span>
+    </div>
+
+    <button type="button" class="button-home" (click)="home()">
+      <img src="assets/games/trivia-quiz/btn-home.png" alt="" />
+    </button>
+  </header>
+
+  <div class="tv">
+    <img src="assets/games/trivia-quiz/game_tv.png" alt="" class="game-tv" />
+    <img src="{{ urlImage }}" alt="" class="background-tv" />
+  </div>
+  <div class="question">{{ question.question }}</div>
+  <div #answersDiv class="answers">
+    <button
+      class="button button-answer"
+      (click)="answerClick($event, question.options[0])"
+    >
+      <span class="option">A</span>
+      {{ question.options[0] }}
+    </button>
+    <button
+      class="button button-answer"
+      (click)="answerClick($event, question.options[1])"
+    >
+      <span class="option">B</span>
+      {{ question.options[1] }}
+    </button>
+    <button
+      class="button button-answer"
+      (click)="answerClick($event, question.options[2])"
+    >
+      <span class="option">C</span>
+      {{ question.options[2] }}
+    </button>
+    <button
+      class="button button-answer"
+      (click)="answerClick($event, question.options[3])"
+    >
+      <span class="option">D</span>
+      {{ question.options[3] }}
+    </button>
+  </div>
+</div>

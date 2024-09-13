@@ -1,0 +1,40 @@
+.gameover {
+  position: relative;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.title {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+}
+
+.container-buttons {
+  display: flex;
+  gap: 16px;
+
+  .button-home {
+    width: 100px;
+    height: 100px;
+
+    background-image: url("../media/home.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .button-replay {
+    width: 100px;
+    height: 100px;
+
+    background-image: url("../media/try_again.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

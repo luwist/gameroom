@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 96px);
+}
+
+.game {
+  background: radial-gradient(#108218, #0c6112);
+}

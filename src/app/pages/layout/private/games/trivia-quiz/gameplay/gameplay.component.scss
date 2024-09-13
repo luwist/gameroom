@@ -1,0 +1,158 @@
+.game {
+  background-color: #ffca23;
+  font-family: "Lato", sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+}
+
+.question-number {
+  position: relative;
+  width: 162px;
+  height: 52px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .text {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-content: center;
+    color: white;
+    font-weight: 700;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  .number {
+    background-color: #573b63;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+}
+
+.button-home img {
+  width: 50px;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.gameplay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: "Lato", sans-serif;
+}
+
+.question {
+  background-color: #0fcabf;
+  color: white;
+  border-radius: 8px;
+  border-bottom: 3px solid #0d988e;
+  padding: 20px 48px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.tv {
+  position: relative;
+  width: 350px;
+  height: 228px;
+}
+
+.game-tv {
+  width: 350px;
+  height: auto;
+}
+
+.background-tv {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 324px;
+  height: 183px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.button-answer {
+  position: relative;
+  cursor: pointer;
+  width: 280px;
+  height: 70px;
+  text-transform: capitalize;
+  background-color: white;
+  color: #101010;
+  border-radius: 8px;
+  border-bottom: 4px solid #2ab2d1;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  .option {
+    position: absolute;
+    top: calc(50% - calc(34px / 2));
+    left: 20px;
+    display: block;
+    background-color: #573b63;
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+    color: white;
+    display: grid;
+    place-content: center;
+  }
+
+  &.right {
+    background-color: #0fcabf;
+    border-color: #0c9187;
+    color: white;
+  }
+
+  &.wrong {
+    background-color: #ea3f68;
+    color: white;
+    border-color: #d13047;
+  }
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  gap: 16px;
+}

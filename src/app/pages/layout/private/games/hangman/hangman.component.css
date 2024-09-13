@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 96px);
+}
+
+.game {
+  background-color: #f5f5f5;
+  font-family: "Caveat", cursive;
+  color: #0568af;
+  background-image: url("./media/general_background_horizontal.png");
+}

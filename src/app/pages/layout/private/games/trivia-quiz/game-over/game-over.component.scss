@@ -1,0 +1,23 @@
+.game-over {
+  height: 100%;
+  width: 100%;
+  background-color: #573b63;
+
+  display: grid;
+  place-content: center;
+}
+
+.container-button {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+
+  img {
+    width: 50px;
+  }
+}
