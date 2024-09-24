@@ -13,7 +13,6 @@ import { UserRepository } from '@app/repositories';
   providedIn: 'root',
 })
 export class AuthService {
-  private static _uid: string;
   currentUser$ = authState(this._auth);
 
   constructor(private _auth: Auth, private _userRepository: UserRepository) {}
@@ -25,7 +24,12 @@ export class AuthService {
       request.password
     );
 
-    AuthService._uid = user.user.uid;
+    localStorage.setItem(
+      'currentUser',
+      JSON.stringify({
+        currentUser: user.user,
+      })
+    );
 
     await this._userRepository.changeUserStatus(user.user.uid);
   }
@@ -39,8 +43,15 @@ export class AuthService {
   }
 
   async logout(): Promise<void> {
-    await this._userRepository.changeUserStatus(AuthService._uid);
+    const user: any = localStorage.getItem('currentUser');
+    const userParse = JSON.parse(user);
+
+    if (userParse !== null) {
+      await this._userRepository.changeUserStatus(userParse.currentUser.uid);
+    }
 
     await signOut(this._auth);
+
+    localStorage.removeItem('currentUser');
   }
 }

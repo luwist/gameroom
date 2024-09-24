@@ -14,7 +14,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class UserRepository implements OnDestroy {
+export class UserRepository {
   private _usersSnapshot!: Unsubscribe;
   currentUser$ = authState(this._auth);
 
@@ -50,9 +50,5 @@ export class UserRepository implements OnDestroy {
         isConnected: !user.isConnected,
       });
     }
-  }
-
-  ngOnDestroy(): void {
-    this._usersSnapshot();
   }
 }
