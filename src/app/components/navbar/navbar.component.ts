@@ -40,11 +40,6 @@ export class NavbarComponent implements OnInit {
             separator: true,
           },
           {
-            label: 'Añadir cuenta',
-            icon: 'pi pi-plus',
-            route: '/login',
-          },
-          {
             label: 'Cerrar sesión',
             icon: 'pi pi-sign-out',
             command: () => {

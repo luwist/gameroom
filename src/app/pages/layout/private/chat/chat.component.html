@@ -1,37 +1,108 @@
 <main class="h-[calc(100vh-96px)] pt-10 flex justify-between">
-    <div class="w-full h-full flex flex-col">
-        <div class="px-10">
-            <h2 class="text-2xl font-semibold">Chat general</h2>
-            <p class="text-sm text-[#1DC60E] font-medium">{{ connectedUsers.length }} conectados</p>
-        </div>
-        <div class="h-full flex-grow border-y px-10">
-            adqwewqe
-        </div>
-        <form class="px-10 flex items-center justify-between h-20" (submit)="sendMessage()">
-            <input type="text" placeholder="Escribe un mensaje aquí..." class="block w-full h-full outline-0 text-sm" name="message" [(ngModel)]="message">
-            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f4f4f4]" type="submit">
-                <i class="pi pi-send" style="font-size: 16px; color: #1f1f1f;"></i>
-            </button>
-        </form>
+  <div class="w-full h-full flex flex-col">
+    <div class="px-10">
+      <h2 class="text-2xl font-semibold">Chat general</h2>
+      <p class="text-sm text-[#1DC60E] font-medium">
+        {{ connectedUsers.length }} conectados
+      </p>
     </div>
-    <div class="w-96">
-        <h3 class="text-base font-semibold">Conectados</h3>
 
-        <div class="mt-4 flex flex-col gap-4">
-            @if (currentUser$ | async; as currentUser) {
-                <div class="flex items-center gap-3">
-                    <img [src]="currentUser.photoURL" alt="" class="w-11 h-11 object-cover rounded-full">
-                    <span class="text-sm font-medium">{{ currentUser.displayName }} (Tú)</span>
-                </div>
-            }
-            @for (connectedUser of connectedUsers; track $index) {
-                @if (connectedUser.id !== (currentUser$ | async)?.uid && connectedUser.isConnected) {
-                    <div class="flex items-center gap-3">
-                        <img [src]="connectedUser.picture" alt="" class="w-11 h-11 object-cover rounded-full">
-                        <span class="text-sm font-medium">{{ connectedUser.firstName }} {{ connectedUser.lastName }}</span>
-                    </div>
-                }
-            }
+    <div
+      class="h-full flex-grow border-y px-10 py-5 flex flex-col gap-3 overflow-y-auto"
+    >
+      @for (item of chat; track $index) { @if (item.id !== (currentUser$ |
+      async)?.uid) { @if (checkLastMessage(item.id)) {
+      <div class="self-start flex items-end gap-2">
+        <img
+          [src]="item.picture"
+          alt=""
+          class="w-10 h-10 rounded-full object-cover"
+        />
+
+        <div class="px-[14px] py-[6px] bg-[#f6f6f6] rounded-xl rounded-es-none">
+          <p
+            class="text-sm font-medium bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text"
+          >
+            {{ item.name }}
+          </p>
+          <p class="text-[#1f1f1f] text-sm">{{ item.message }}</p>
+          <p class="text-xs text-right text-[#808080]">
+            {{ item.createdAt.toDate() | date : "shortTime" }}
+          </p>
         </div>
+      </div>
+      } @else {
+      <div
+        class="self-start px-[14px] py-[6px] bg-[#f6f6f6] rounded-xl rounded-es-none"
+      >
+        <p
+          class="text-sm font-medium bg-gradient-to-r from-[#FF395C] to-[#FF6243] inline-block text-transparent bg-clip-text"
+        >
+          {{ item.name }}
+        </p>
+        <p class="text-[#1f1f1f] text-sm">{{ item.message }}</p>
+        <p class="text-xs text-right text-[#808080]">
+          {{ item.createdAt.toDate() | date : "shortTime" }}
+        </p>
+      </div>
+      } } @else {
+      <div
+        class="self-end px-[14px] py-[6px] bg-gradient-to-r from-[#FF395C] to-[#FF6243] rounded-xl rounded-ee-none"
+      >
+        <p class="text-white text-sm">{{ item.message }}</p>
+        <p class="text-xs text-right text-white">
+          {{ item.createdAt.toDate() | date : "shortTime" }}
+        </p>
+      </div>
+      } }
     </div>
+
+    <form
+      class="px-10 flex items-center justify-between h-20"
+      (submit)="sendMessage()"
+    >
+      <textarea
+        placeholder="Escribe un mensaje aquí..."
+        class="block w-full h-full outline-0 text-sm py-5 resize-none"
+        name="message"
+        [(ngModel)]="message"
+      ></textarea>
+      <button
+        class="w-10 h-10 flex items-center justify-center rounded-full bg-[#f4f4f4]"
+        type="submit"
+      >
+        <i class="pi pi-send" style="font-size: 16px; color: #1f1f1f"></i>
+      </button>
+    </form>
+  </div>
+  <div class="w-96 border-l px-5">
+    <h3 class="text-base font-semibold">Conectados</h3>
+
+    <div class="mt-4 flex flex-col gap-4">
+      @if (currentUser$ | async; as currentUser) {
+      <div class="flex items-center gap-3">
+        <img
+          [src]="currentUser.photoURL"
+          alt=""
+          class="w-11 h-11 object-cover rounded-full"
+        />
+        <span class="text-sm font-medium"
+          >{{ currentUser.displayName }} (Tú)</span
+        >
+      </div>
+      } @for (connectedUser of connectedUsers; track $index) { @if
+      (connectedUser.id !== (currentUser$ | async)?.uid) {
+      <div class="flex items-center gap-3">
+        <img
+          [src]="connectedUser.picture"
+          alt=""
+          class="w-11 h-11 object-cover rounded-full"
+        />
+        <span class="text-sm font-medium"
+          >{{ connectedUser.firstName }} {{ connectedUser.lastName }}</span
+        >
+      </div>
+      } }
+    </div>
+  </div>
 </main>
